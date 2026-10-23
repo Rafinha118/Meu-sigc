@@ -1,0 +1,170 @@
+/* ===================================================================
+   Sistema Integrado de Gestão Comercial — SIGC (Lee Market)
+   Estilização Global e Identidade Visual (assets/css/custom.css)
+   =================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Isometra:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-primary: #111184;
+    --color-primary-hover: #0c0c66;
+    --color-primary-light: #ececfb;
+    --color-accent: #FFD32C;
+    --color-accent-hover: #e6bd1f;
+    --color-accent-text: #000000;
+    --color-bg: #FFFFFF;
+    --color-text: #000000;
+    --color-card-bg: #FFFFFF;
+    --color-border: #e2e8f0;
+}
+
+/* Regra Global de Tipografia: Isometra em todo o sistema */
+*, html, body, input, button, select, textarea, table, th, td, h1, h2, h3, h4, h5, h6, p, span, a {
+    font-family: 'Isometra', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+body {
+    background-color: #F8FAFC;
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utilitários Lee Market */
+.bg-lee-blue { background-color: #111184; }
+.hover\:bg-lee-blue-dark:hover { background-color: #0c0c66; }
+.text-lee-blue { color: #111184; }
+.border-lee-blue { border-color: #111184; }
+
+.bg-lee-yellow { background-color: #FFD32C; }
+.hover\:bg-lee-yellow-dark:hover { background-color: #e6bd1f; }
+.text-lee-yellow { color: #FFD32C; }
+.border-lee-yellow { border-color: #FFD32C; }
+
+/* Botão de destaque Lee Market */
+.btn-lee-primary {
+    background-color: #111184;
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.btn-lee-primary:hover {
+    background-color: #0c0c66;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(17, 17, 132, 0.25);
+}
+
+.btn-lee-accent {
+    background-color: #FFD32C;
+    color: #000000;
+    font-weight: 700;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 3px 0 rgba(255, 211, 44, 0.4);
+}
+.btn-lee-accent:hover {
+    background-color: #e6bd1f;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(255, 211, 44, 0.6);
+}
+
+.btn-lee-secondary {
+    background-color: #FFFFFF;
+    color: #111184;
+    border: 1.5px solid #111184;
+    font-weight: 600;
+    padding: 0.55rem 1.15rem;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+.btn-lee-secondary:hover {
+    background-color: #f1f3fd;
+}
+
+/* Animações de Toast */
+@keyframes slideInRight {
+    from {
+        transform: translateX(110%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+.toast-enter {
+    animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.toast-leave {
+    animation: fadeOut 0.25s ease forwards;
+}
+
+/* Modal personalizado Lee Market */
+.modal-backdrop {
+    background-color: rgba(17, 17, 132, 0.45);
+    backdrop-filter: blur(3px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Estilo para impressão de comprovante / cupom */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #cupom-impressao, #cupom-impressao * {
+        visibility: visible;
+    }
+    #cupom-impressao {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 80mm;
+        margin: 0;
+        padding: 5mm;
+        font-size: 11px;
+    }
+    .no-print {
+        display: none !important;
+    }
+}
